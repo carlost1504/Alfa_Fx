@@ -1,5 +1,6 @@
 package control;
 
+import model.*;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -26,13 +27,27 @@ public class formCalculator {
     private Label txtFX2;
 
     @FXML
-    void Multiple(ActionEvent event) {
-
+    public void Multiple(ActionEvent event) {
+    	int getdenominator=Integer.parseInt(denominatorFX.getText());
+    	int getnumerator=Integer.parseInt(numeratorTX.getText());
+    	int multi=Operations.multiplication( getnumerator, getdenominator);
+    	String messag = "multiplication is "+multi;
+    	txtFX1.setText(messag);
     }
 
     @FXML
-    void division(ActionEvent event) {
-
+    public void division(ActionEvent event) {
+    	int getdenominator=Integer.parseInt(denominatorFX.getText());
+    	int getnumerator=Integer.parseInt(numeratorTX.getText());
+    	int divis=Operations.division( getnumerator, getdenominator);
+    	String messag;
+    	if (divis!=0) {
+    		messag = "division is "+divis;
+    	}else {
+    		messag = "invalid division because denominator is 0 ";
+    	}
+    	txtFX2.setText(messag);
+    	
     }
 
 	public Stage build() {
